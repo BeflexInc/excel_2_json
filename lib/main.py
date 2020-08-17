@@ -1,9 +1,9 @@
 import json
 from openpyxl import load_workbook
 
-excelFile = input("Excel File name : ")
+excelFile = input("Excel File location : ")
 
-loadedExcel = load_workbook('../assets/' + excelFile, data_only=True)
+loadedExcel = load_workbook(excelFile, data_only=True)
 
 loadedSheet = loadedExcel['Sheet1']
 
@@ -35,6 +35,6 @@ for element in langCodeKey:
     json_dict = dict(zip(keyList, valueList))
     valueList = []
     del (json_dict[keyList[0]])
-    with open('../assets/' + targetLangCode[element] + '.json', 'w', encoding='UTF-8') as outfile:
+    with open('./assets/' + targetLangCode[element] + '.json', 'w', encoding='UTF-8') as outfile:
         json.dump(json_dict, outfile, ensure_ascii=False)
         print('Done with ' + targetLangCode[element])
