@@ -1,10 +1,9 @@
 import json
-import openpyxl
 from openpyxl import load_workbook
 
-# excelFile = input("Excel File location :: ")
+excelFile = input("Excel File name : ")
 
-loadedExcel = load_workbook('../assets/Beflex app Text resource.xlsx', data_only=True)
+loadedExcel = load_workbook('../assets/' + excelFile, data_only=True)
 
 loadedSheet = loadedExcel['Sheet1']
 
@@ -38,3 +37,4 @@ for element in langCodeKey:
     del (json_dict[keyList[0]])
     with open('../assets/' + targetLangCode[element] + '.json', 'w', encoding='UTF-8') as outfile:
         json.dump(json_dict, outfile, ensure_ascii=False)
+        print('Done with ' + targetLangCode[element])
