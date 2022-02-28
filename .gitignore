@@ -1,1 +1,4 @@
-assets/*
+venv/
+.idea/*
+lib/token.json
+lib/credentials.json
