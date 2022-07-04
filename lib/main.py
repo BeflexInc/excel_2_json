@@ -43,7 +43,8 @@ def downloadTextResourceFromDrive():
 
         # Call the Drive v3 API
         results = service.files().list(
-            q="name = 'beflex_app_text_resource'",
+            # q="name = 'beflex_app_text_resource'",
+            q="name = 'AirFlex_textresource'",
             fields="nextPageToken, files(id, name)",
             includeItemsFromAllDrives=True,
             supportsAllDrives=True,
@@ -89,7 +90,8 @@ def convertExcelToJson():
     loadedSheet = loadedExcel.active
 
     # 새 언어 추가될때마다 주석 풀어주면 됨
-    targetLangCode = {'B': loadedSheet['B1'].value, 'C': loadedSheet['C1'].value, 'D': loadedSheet['D1'].value,
+    targetLangCode = {'B': loadedSheet['B1'].value, 'C': loadedSheet['C1'].value,
+                      # 'D': loadedSheet['D1'].value,
                       # 'E': loadedSheet['E1'].value, 'F': loadedSheet['F1'].value, 'G': loadedSheet['G1'].value,
                       }
     langCodeKey = list(targetLangCode.keys())
