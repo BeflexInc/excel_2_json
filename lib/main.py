@@ -107,7 +107,10 @@ def convertExcelToJson():
     for element in langCodeKey:
         # Value 배열 만들기
         for row in loadedSheet[element]:
-            valueList.append(row.value)
+            if type(row.value) == float:
+                valueList.append("{}".format(int(row.value)))
+            else:
+                valueList.append("{}".format(row.value))
         json_dict = dict(zip(keyList, valueList))
         valueList = []
         # 첫 번째 row 의 언어 코드 row 지우기
