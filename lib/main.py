@@ -16,6 +16,7 @@ from googleapiclient.http import MediaIoBaseDownload
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
+
 def downloadTextResourceFromDrive():
     """Shows basic usage of the Drive v3 API.
     Prints the names and ids of the first 10 files the user has access to.
@@ -44,7 +45,7 @@ def downloadTextResourceFromDrive():
         # Call the Drive v3 API
         results = service.files().list(
             # q="name = 'beflex_app_text_resource'",
-            q="name = 'AirFlex_textresource'",
+            q="name = 'jump_rope_textresource'",
             fields="nextPageToken, files(id, name)",
             includeItemsFromAllDrives=True,
             supportsAllDrives=True,
@@ -72,10 +73,11 @@ def downloadTextResourceFromDrive():
         # TODO(developer) - Handle errors from drive API.
         print(f'An error occurred: {error}')
 
+
 def convertExcelToJson():
     projectResourcePath = ''
     filesize = os.path.getsize('../assets/flutter_project_resource_path.txt')
-    if(filesize == 0):
+    if (filesize == 0):
         path = input('flutter project i18n path :')
         i18nLocation = open('../assets/flutter_project_resource_path.txt', 'w')
         i18nLocation.write(path)
@@ -120,9 +122,11 @@ def convertExcelToJson():
             json.dump(json_dict, outfile, ensure_ascii=False, indent='\t')
             print('Done with ' + str(targetLangCode[element]))
 
+
 def main():
     downloadTextResourceFromDrive()
     convertExcelToJson()
+
 
 if __name__ == '__main__':
     main()
