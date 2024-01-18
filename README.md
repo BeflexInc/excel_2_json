@@ -30,3 +30,9 @@ Google OAuth로 인증하고 drive의 text resource 를 가져와서 json 으로
 4. 구글 로그인
 5. 프로젝트 i18n 폴더 경로 기재 (경로 변경을 원할 경우, asset 폴더 안의 **flutter_project_resource_path.txt** 내용 변경하면 됨)
 6. 기재한 프로젝트 i18n 경로로 변환된 파일 저장됨.
+
+## Handle different projects
+브랜치를 변경하여 프로젝트에 맞게 세팅할 수 있음
+
+airflex -> 32Go
+jump_rope -> JumpRopeGo
